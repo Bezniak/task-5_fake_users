@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import Controls from "./components/Controls";
+import UserDataTable from "./components/UserDataTable";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [region, setRegion] = useState('');
+    const [errorPerRecord, setErrorPerRecord] = useState(0);
+    const [seed, setSeed] = useState('');
+
+    return (
+        <div>
+            <Controls
+                region={region}
+                setRegion={setRegion}
+                errorPerRecord={errorPerRecord}
+                setErrorPerRecord={setErrorPerRecord}
+                seed={seed}
+                setSeed={setSeed}
+            />
+            <UserDataTable region={region} errorPerRecord={errorPerRecord} seed={seed}/>
+        </div>
+    );
+};
 
 export default App;
