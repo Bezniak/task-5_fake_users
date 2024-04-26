@@ -66,7 +66,7 @@ const UserDataTable = ({region, errorPerRecord, seed}) => {
             const newData = generateUserData(localFaker, 10, errorPerRecord, region, newSeed);
             setUserData(prevData => [...prevData, ...newData]);
             setTotalLoaded(prevTotal => prevTotal + 10);
-        }, 1500);
+        }, 1000);
     };
 
     return (
